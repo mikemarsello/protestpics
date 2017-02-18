@@ -1,0 +1,88 @@
+.btn-info {
+  transition: background-color .2s ease-in-out;
+}
+.logo img {
+  width: 120px;
+}
+.blazy > .grid {
+  margin-bottom: 30px;
+}
+.views-field.views-field-field-picture-caption {
+  text-align: center;
+}
+.page-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.navbar-brand {
+  float: none;
+  font-family: 'Cutive Mono', monospace;  font-size: 80px;
+  color: #222;
+  display: inline-block;
+  vertical-align: middle;
+  letter-spacing: -8px;
+  margin-top: 20px;
+}
+p.navbar-text {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.navbar-brand:hover {
+  color: #222;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+input[type="file"] {
+  height: auto;
+}
+.node-add-page #edit-field-picture-caption-0-format {
+  display: none;
+}
+.node-add-page button#edit-preview {
+  display: none;
+}
+.node-add-page .addnew {
+  display: none;
+}
+.node-add-page .page-header {
+  margin-top: 20px;;
+}
+@media only screen and (max-width: 768px) {
+  .logo img {
+    width: 60px;
+  }
+  .navbar-brand {
+    font-size: 36px;
+  }
+  .main-container {
+    margin-top: 20px;
+  }
+  .content-top-region {
+    margin-top: 8px;
+  }
+  .logo-float {
+    float: left;
+    padding-right: 0;
+  }
+  .text-left {
+    text-align: right;
+  }
+  .name.navbar-brand {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .btn-info {
+    padding: 8px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .navbar-brand {
+    font-size: 30px;
+  }
+}

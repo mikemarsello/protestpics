@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+function protest_preprocess_page(&$variables) {
+  $base_url = $GLOBALS['base_url'];
+  $addnew_url = $base_url . '/node/add/protest_picture';
+  $variables['addnew_url'] = $addnew_url ;
+}
