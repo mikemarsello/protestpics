@@ -1,0 +1,22 @@
+uuid: 0ed6108e-0b01-4399-b05a-221a8d52547e
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - protest
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: protest_search
+theme: protest
+region: '-1'
+weight: -3
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+visibility: {  }

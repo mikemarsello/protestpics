@@ -1,0 +1,46 @@
+uuid: f8f6b4d5-21f0-47fd-8c22-d8f4d633f544
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.protest_picture.field_date
+    - field.field.node.protest_picture.field_picture
+    - field.field.node.protest_picture.field_picture_caption
+    - node.type.protest_picture
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.protest_picture.default
+targetEntityType: node
+bundle: protest_picture
+mode: default
+content:
+  field_date:
+    weight: 103
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_picture:
+    weight: 102
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_picture_caption:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

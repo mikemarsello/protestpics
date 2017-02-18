@@ -1,0 +1,22 @@
+uuid: a0e4fa2d-3690-48f1-9ee6-8f571e1ea41e
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - protest
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: protest_content
+theme: protest
+region: '-1'
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

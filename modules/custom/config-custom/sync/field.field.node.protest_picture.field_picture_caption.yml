@@ -1,0 +1,21 @@
+uuid: d6b57ceb-c6ea-48a8-8217-f99368c14549
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_picture_caption
+    - node.type.protest_picture
+  module:
+    - text
+id: node.protest_picture.field_picture_caption
+field_name: field_picture_caption
+entity_type: node
+bundle: protest_picture
+label: 'Picture Caption'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

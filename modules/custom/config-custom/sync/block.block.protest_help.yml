@@ -1,0 +1,22 @@
+uuid: 51a16789-c59a-40d9-bfd0-a27c296c4eed
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - protest
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: protest_help
+theme: protest
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

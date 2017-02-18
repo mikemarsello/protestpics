@@ -1,0 +1,15 @@
+uuid: 310ad20b-6930-4607-9b2a-07c835e22b90
+langcode: en
+status: true
+dependencies: {  }
+name: protest_small
+label: protest-small
+effects:
+  f0b0be4c-5907-430f-8125-de5c96b49a1b:
+    uuid: f0b0be4c-5907-430f-8125-de5c96b49a1b
+    id: image_scale
+    weight: 1
+    data:
+      width: 350
+      height: null
+      upscale: true

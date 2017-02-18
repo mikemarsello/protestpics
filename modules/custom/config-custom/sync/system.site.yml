@@ -1,0 +1,14 @@
+uuid: 5cf3212b-fe7e-4c30-82b7-585f5890c8fb
+name: deludenoid
+mail: juliet.walker@gmail.com
+slogan: 'Be the change you want to see!'
+page:
+  403: ''
+  404: ''
+  front: /protest-pictures
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

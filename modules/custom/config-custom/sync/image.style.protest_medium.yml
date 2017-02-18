@@ -1,0 +1,15 @@
+uuid: 90e88b9a-1bed-47c9-b874-c2c8d733b566
+langcode: en
+status: true
+dependencies: {  }
+name: protest_medium
+label: protest-medium
+effects:
+  eae93071-0e0e-45f3-8d64-ce878640eb4e:
+    uuid: eae93071-0e0e-45f3-8d64-ce878640eb4e
+    id: image_scale
+    weight: 1
+    data:
+      width: 500
+      height: null
+      upscale: true

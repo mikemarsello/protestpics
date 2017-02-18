@@ -1,0 +1,15 @@
+uuid: da832250-eb35-4a5e-8e53-b92e94fc3565
+langcode: en
+status: true
+dependencies: {  }
+name: protest_large
+label: protest-large
+effects:
+  e09beed9-aaa0-4ef2-8233-65049ad78835:
+    uuid: e09beed9-aaa0-4ef2-8233-65049ad78835
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: true

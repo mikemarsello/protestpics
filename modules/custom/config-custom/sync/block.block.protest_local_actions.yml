@@ -1,0 +1,20 @@
+uuid: c07004a5-68ed-40cd-8ef0-4a9309da9c7c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - protest
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: protest_local_actions
+theme: protest
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

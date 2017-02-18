@@ -1,0 +1,35 @@
+features:
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+  node_user_picture: 1
+logo:
+  path: 'public://deludenoid.png'
+  url: ''
+  use_default: 0
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://localhost/protest/drupal-8.2.6/themes/bootstrap/protest/favicon.ico'
+  use_default: 1
+zurb_foundation_status_in_reveal: 0
+zurb_foundation_use_respondjs: 0
+zurb_foundation_meta_header_grid: 0
+zurb_foundation_top_bar_enable: '0'
+zurb_foundation_top_bar_grid: 0
+zurb_foundation_top_bar_sticky: 0
+zurb_foundation_top_bar_is_hover: 0
+zurb_foundation_top_bar_menu_text: ''
+zurb_foundation_top_bar_custom_back_text: 0
+zurb_foundation_top_bar_back_text: ''
+zurb_foundation_top_bar_search: 0
+zurb_foundation_page_site_name: 1
+zurb_foundation_page_site_logo: 0
+zurb_foundation_page_account_info: 0
+zurb_foundation_disable_base_css: 0
+zurb_foundation_disable_base_js: 0
+schemas:
+  bootstrap: 8000
+  protest: 8000
+cdn_jsdelivr_theme: cosmo
+table: ''

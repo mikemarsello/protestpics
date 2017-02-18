@@ -1,0 +1,23 @@
+uuid: 643f276f-be0a-4113-af59-de923b691083
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.protest_picture.field_date
+    - field.field.node.protest_picture.field_picture
+    - field.field.node.protest_picture.field_picture_caption
+    - node.type.protest_picture
+  module:
+    - user
+id: node.protest_picture.teaser
+targetEntityType: node
+bundle: protest_picture
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_date: true
+  field_picture: true
+  field_picture_caption: true
