@@ -1,9 +1,6 @@
 .btn-info {
   transition: background-color .2s ease-in-out;
 }
-.logo img {
-  width: 120px;
-}
 .blazy > .grid {
   margin-bottom: 30px;
 }
@@ -53,36 +50,53 @@ input[type="file"] {
 .node-add-page .page-header {
   margin-top: 20px;;
 }
-@media only screen and (max-width: 768px) {
-  .logo img {
-    width: 60px;
-  }
-  .navbar-brand {
-    font-size: 36px;
-  }
-  .main-container {
-    margin-top: 20px;
-  }
-  .content-top-region {
-    margin-top: 8px;
-  }
-  .logo-float {
-    float: left;
-    padding-right: 0;
-  }
-  .text-left {
-    text-align: right;
-  }
-  .name.navbar-brand {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .btn-info {
-    padding: 8px;
-  }
+.content-top-region .text-right {
+    display: inline-block;
+    float: right;
 }
-@media only screen and (max-width: 400px) {
+.content-top-region .social-icon:hover {
+  pointer: finger;
+}
+.content-top-region .social-icon {
+  vertical-align: middle;
+}
+.content-top-region .text-left {
+    display: inline-block;
+}
+.content-top-region .btn-info {
+    color: #222;
+    background-color: #fff;
+    border-color: #222;
+    border-radius: 3px;
+}
+.content-top-region .btn-info:hover {
+   background-color: #fff;
+   text-decoration: underline;
+}
+@media only screen and (max-width: 600px) {
   .navbar-brand {
     font-size: 30px;
+    letter-spacing: .01em;
+    margin-top: 0;
+  }
+  .main-container {
+     margin-top: 0;
+  }
+  .content-top-region {
+    margin-top: 0;
+  }
+  p.navbar-text {
+    font-size: 13px;
+    letter-spacing: .005em;
+    margin-top: 0;
+  }
+  .logo-float {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .content-top-region .btn-info {
+    font-size: 11px;
+    padding: 8px 5px;
   }
 }
