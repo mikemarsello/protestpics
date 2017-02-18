@@ -260,18 +260,7 @@ display:
             label: ''
           granularity: second
       title: ''
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: 'from dev to prod'
-          plugin_id: text_custom
+      header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
