@@ -6,8 +6,29 @@
  * Place your custom PHP code in this file.
  */
 
+// use Symfony\Component\HttpFoundation\RedirectResponse;
+
 function protest_preprocess_page(&$variables) {
   $base_url = $GLOBALS['base_url'];
   $addnew_url = $base_url . '/node/add/protest_picture';
   $variables['addnew_url'] = $addnew_url ;
+//  kint($variables);
+//  return new \Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+  // echo "<h1>ASDFASDF</h1>";
+  // $path = \Drupal::request()->getpathInfo();
+  // $arg  = explode('/',$path);
+  // if (\Drupal::currentUser()->isAnonymous() && $arg[1] == 'node' && is_numeric($arg[2])) {
+  //   echo "<h1>ASDFASDF</h1>";
+  //   // return new \Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+  // }
 }
+
+// use Drupal\Core\Controller\ControllerBase;
+//
+// class MyControllerClass extends ControllerBase {
+//
+//   public function foo(Request $request) {
+//     //...
+//     return $this->redirect('');
+//   }
+// }

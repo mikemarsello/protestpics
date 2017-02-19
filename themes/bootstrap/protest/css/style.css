@@ -100,3 +100,9 @@ input[type="file"] {
     padding: 8px 5px;
   }
 }
+
+///////////////////////////////////////////////
+form {
+    margin-bottom: 200px!important;
+    padding-bottom: 200px!important;
+}
