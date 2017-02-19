@@ -1,0 +1,22 @@
+uuid: eb6c952f-2d1f-48f4-bb30-90ab99ddc0a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.protest_picture
+id: node.protest_picture.promote
+field_name: promote
+entity_type: node
+bundle: protest_picture
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

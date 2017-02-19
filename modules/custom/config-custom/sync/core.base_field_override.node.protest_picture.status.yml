@@ -1,0 +1,22 @@
+uuid: a63d94ee-e84c-45b8-ace0-174b0e52365a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.protest_picture
+id: node.protest_picture.status
+field_name: status
+entity_type: node
+bundle: protest_picture
+label: 'Publishing status'
+description: 'A boolean indicating whether the node is published.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
