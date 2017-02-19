@@ -1,0 +1,9 @@
+uuid: 52ae6ef9-efd4-4873-a386-70d9f249f8e7
+langcode: en
+status: true
+dependencies: {  }
+id: user
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301
