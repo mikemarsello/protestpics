@@ -4,9 +4,9 @@
 .blazy > .grid {
   margin-bottom: 30px;
 }
-.views-field.views-field-field-picture-caption {
+/*.views-field.views-field-field-picture-caption {
   text-align: center;
-}
+}*/
 .page-header {
   border-bottom: none;
   padding-bottom: 0;
@@ -73,7 +73,7 @@ input[type="file"] {
    background-color: #fff;
    text-decoration: underline;
 }
-.field.field--name-field-picture-credit.field--type-string.field--label-hidden.field--item.quickedit-field {
+.views-field.views-field-field-picture-credit {
     font-style: italic;
 }
 @media only screen and (max-width: 600px) {
