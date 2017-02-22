@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.protest_picture.field_agree_to_terms
     - field.field.node.protest_picture.field_date
     - field.field.node.protest_picture.field_picture
     - field.field.node.protest_picture.field_picture_caption
+    - field.field.node.protest_picture.field_picture_credit
     - image.style.thumbnail
     - node.type.protest_picture
   module:
@@ -13,6 +15,7 @@ dependencies:
     - image
     - path
     - text
+    - workbench_moderation
 id: node.protest_picture.default
 targetEntityType: node
 bundle: protest_picture
@@ -20,55 +23,68 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     settings: {  }
     third_party_settings: {  }
+  field_agree_to_terms:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_date:
-    weight: 33
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_picture:
-    weight: 32
+    weight: 6
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
   field_picture_caption:
-    weight: 34
+    weight: 9
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
+  field_picture_credit:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   path:
     type: path
-    weight: 30
+    weight: 5
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 3
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 4
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60

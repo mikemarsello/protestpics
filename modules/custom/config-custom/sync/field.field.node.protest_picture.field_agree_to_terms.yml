@@ -1,0 +1,23 @@
+uuid: 5ccd56bb-5b41-4d01-899c-29de0e830627
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agree_to_terms
+    - node.type.protest_picture
+id: node.protest_picture.field_agree_to_terms
+field_name: field_agree_to_terms
+entity_type: node
+bundle: protest_picture
+label: 'Agree to Terms'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

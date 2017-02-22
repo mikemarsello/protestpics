@@ -1,0 +1,19 @@
+uuid: 549dc866-56af-4a45-b651-2fe670e4e2d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_picture_credit
+    - node.type.protest_picture
+id: node.protest_picture.field_picture_credit
+field_name: field_picture_credit
+entity_type: node
+bundle: protest_picture
+label: 'Picture Credit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
