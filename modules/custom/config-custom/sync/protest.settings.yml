@@ -9,9 +9,9 @@ logo:
   use_default: 0
 favicon:
   mimetype: image/vnd.microsoft.icon
-  path: ''
+  path: 'public://favicon.ico'
   url: 'http://localhost/protest/drupal-8.2.6/themes/bootstrap/protest/favicon.ico'
-  use_default: 1
+  use_default: 0
 zurb_foundation_status_in_reveal: 0
 zurb_foundation_use_respondjs: 0
 zurb_foundation_meta_header_grid: 0

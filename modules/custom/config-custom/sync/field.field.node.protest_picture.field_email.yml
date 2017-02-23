@@ -9,8 +9,8 @@ id: node.protest_picture.field_email
 field_name: field_email
 entity_type: node
 bundle: protest_picture
-label: Email
-description: 'Optionally, enter your email address'
+label: 'Email (optional)'
+description: ''
 required: false
 translatable: false
 default_value: {  }
