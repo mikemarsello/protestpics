@@ -215,7 +215,7 @@ display:
           type: datetime_custom
           settings:
             timezone_override: ''
-            date_format: n/m/Y
+            date_format: n/j/Y
           group_column: value
           group_columns: {  }
           group_rows: true
