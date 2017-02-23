@@ -1,0 +1,18 @@
+uuid: 21506e8d-61ba-4707-a5c4-21ca73d792ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.protest_picture
+id: node.protest_picture.title
+field_name: title
+entity_type: node
+bundle: protest_picture
+label: 'Title (title will not be displayed)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

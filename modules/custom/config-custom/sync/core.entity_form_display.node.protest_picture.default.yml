@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.protest_picture.field_agree_to_terms
     - field.field.node.protest_picture.field_date
+    - field.field.node.protest_picture.field_email
     - field.field.node.protest_picture.field_picture
     - field.field.node.protest_picture.field_picture_caption
     - field.field.node.protest_picture.field_picture_credit
@@ -37,6 +38,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+  field_email:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
   field_picture:
     weight: 6
     settings:

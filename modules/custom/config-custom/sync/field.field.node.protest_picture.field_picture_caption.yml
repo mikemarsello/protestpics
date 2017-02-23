@@ -11,8 +11,8 @@ id: node.protest_picture.field_picture_caption
 field_name: field_picture_caption
 entity_type: node
 bundle: protest_picture
-label: 'Picture Caption'
-description: ''
+label: 'Photo Description'
+description: 'Note: There is a limit of 255 characters'
 required: true
 translatable: false
 default_value: {  }

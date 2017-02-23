@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.protest_picture.field_agree_to_terms
     - field.field.node.protest_picture.field_date
+    - field.field.node.protest_picture.field_email
     - field.field.node.protest_picture.field_picture
     - field.field.node.protest_picture.field_picture_caption
     - field.field.node.protest_picture.field_picture_credit
@@ -50,3 +51,4 @@ content:
 hidden:
   field_agree_to_terms: true
   field_date: true
+  field_email: true

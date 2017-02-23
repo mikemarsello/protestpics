@@ -10,7 +10,8 @@
    */
   Drupal.behaviors.customBehavior = {
     attach: function (context) {
-
+      // $('#node-protest-picture-form .form-actions button.form-submit').css('background', 'yellow!important');
+      $('body').css('background', 'yellow!important!important');
     }
   };
 

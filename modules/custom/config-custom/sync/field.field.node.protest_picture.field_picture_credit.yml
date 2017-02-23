@@ -9,7 +9,7 @@ id: node.protest_picture.field_picture_credit
 field_name: field_picture_credit
 entity_type: node
 bundle: protest_picture
-label: 'Picture Credit'
+label: 'Name of Photographer'
 description: ''
 required: false
 translatable: false

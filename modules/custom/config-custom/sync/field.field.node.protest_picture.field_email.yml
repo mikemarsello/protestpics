@@ -1,0 +1,19 @@
+uuid: 77fc585d-4414-4441-8ea2-d3dcab1e2276
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.protest_picture
+id: node.protest_picture.field_email
+field_name: field_email
+entity_type: node
+bundle: protest_picture
+label: Email
+description: 'Optionally, enter your email address'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -9,8 +9,8 @@ id: node.protest_picture.field_agree_to_terms
 field_name: field_agree_to_terms
 entity_type: node
 bundle: protest_picture
-label: 'Agree to Terms'
-description: ''
+label: 'I Agree to the Following Terms'
+description: "<ul>\r\n<li>You must not upload photographs that contain objectionable content, including but not limited to nudity, violence, and other offensive, illegal or inappropriate images. Also, images cannot contain advertisement or links.</li>\r\n<li>By uploading an image to Deludenoid.com, you permit Deludenoid.com the unrestricted, perpetual, worldwide, non-transferable, royalty-free right and license to display, exhibit, transmit, reproduce, record, digitize, modify, alter, adapt, create derivative works, exploit and otherwise use and permit others to use in connection with the image uploaded on the product page or display at Deludenoid.com, in all languages and all media, whether now known or hereinafter devised, including without limitation on the Internet, on mobile platforms and/or devices, in printed materials, and in the advertising, publicity and promotion thereof.</li>\r\n<li>You must hold the copyright of the images that you are uploading. Images that are considered to infringe the copyright or trademarks of other individuals, organizations or companies will not be permitted and will be removed. You must acknowledge that you have sufficient written permission (if necessary) of any recognizable locations or people appearing in the photograph to be able to grant us permission to use it on our website.</li>\r\n<li>You should bear in mind that by uploading an image to our website, you are agreeing to indemnify us from any liability resulting from breaches of copyright of the image existing online on our website in digital form.</li>\r\n</ul>\r\n"
 required: true
 translatable: false
 default_value:
