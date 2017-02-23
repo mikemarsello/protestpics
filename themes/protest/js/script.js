@@ -10,9 +10,9 @@
    */
   Drupal.behaviors.customBehavior = {
     attach: function (context) {
-      $('h1.page-header').hide();
-      $('form').css('margin-top','20px');
-      $('form .form-actions button').text('Submit for Review').css('margin-bottom','40px');
+      $('.node-add-page h1.page-header').hide();
+      $('.node-add-page form').css('margin-top','20px');
+      $('.node-add-page form .form-actions button').text('Submit for Review').css('margin-bottom','40px');
     }
   };
 
