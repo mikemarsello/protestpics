@@ -8,8 +8,8 @@ logo:
   url: ''
   use_default: 0
 favicon:
-  mimetype: image/vnd.microsoft.icon
-  path: 'public://favicon.ico'
+  mimetype: image/jpeg
+  path: 'public://unnamed.jpg'
   url: 'http://localhost/protest/drupal-8.2.6/themes/bootstrap/protest/favicon.ico'
   use_default: 0
 zurb_foundation_status_in_reveal: 0
