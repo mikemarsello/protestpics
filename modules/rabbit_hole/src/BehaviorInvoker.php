@@ -99,6 +99,12 @@ class BehaviorInvoker implements BehaviorInvokerInterface {
     }
 
     $values = $this->getRabbitHoleValuesForEntity($entity);
+
+    if (empty($values['rh_action'])) {
+      // No action set; do nothing.
+      return NULL;
+    }
+
     $plugin = $this->rhBehaviorPluginManager
       ->createInstance($values['rh_action'], $values);
 
@@ -132,7 +138,7 @@ class BehaviorInvoker implements BehaviorInvokerInterface {
    *   An array of string entity ids.
    */
   public function getPossibleEntityTypeKeys() {
-    $entity_type_keys = array();
+    $entity_type_keys = [];
     foreach ($this->rhEntityPluginManager->getDefinitions() as $def) {
       $entity_type_keys[] = $def['entityType'];
     }
@@ -152,16 +158,19 @@ class BehaviorInvoker implements BehaviorInvokerInterface {
    */
   private function getRabbitHoleValuesForEntity(ContentEntityBase $entity) {
     $field_keys = array_keys($this->rhEntityExtender->getGeneralExtraFields());
-    $values = array();
+    $values = [];
 
     $config = $this->rhBehaviorSettingsManager->loadBehaviorSettingsAsConfig(
       $entity->getEntityType()->getBundleEntityType()
         ?: $entity->getEntityType()->id(),
-      $entity->bundle());
+      $entity->getEntityType()->getBundleEntityType()
+        ? $entity->bundle()
+        : NULL
+    );
 
     // We trigger the default bundle action under the following circumstances:
     $trigger_default_bundle_action =
-    // Bundle settings do not allow override
+    // Bundle settings do not allow override.
       !$config->get('allow_override')
     // Entity does not have rh_action field.
       || !$entity->hasField('rh_action')

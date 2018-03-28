@@ -11,7 +11,7 @@ use Drupal\rabbit_hole\Exception\InvalidBehaviorSettingException;
  *
  * @ConfigEntityType(
  *   id = "behavior_settings",
- *   label = @Translation("Behavior settings"),
+ *   label = @Translation("Rabbit hole settings"),
  *   handlers = {},
  *   config_prefix = "behavior_settings",
  *   admin_permission = "administer site configuration",
@@ -110,7 +110,7 @@ class BehaviorSettings extends ConfigEntityBase implements BehaviorSettingsInter
    * @todo Possibly this should instead rely on the redirect plugin?
    */
   public function setRedirectCode($redirect_code) {
-    if (!in_array($redirect_code, array(
+    if (!in_array($redirect_code, [
       self::REDIRECT_NOT_APPLICABLE,
       self::REDIRECT_MOVED_PERMANENTLY,
       self::REDIRECT_FOUND,
@@ -118,7 +118,7 @@ class BehaviorSettings extends ConfigEntityBase implements BehaviorSettingsInter
       self::REDIRECT_NOT_MODIFIED,
       self::REDIRECT_USE_PROXY,
       self::REDIRECT_TEMPORARY_REDIRECT,
-    )
+    ]
       )) {
       throw new InvalidBehaviorSettingException('redirect_code');
     }

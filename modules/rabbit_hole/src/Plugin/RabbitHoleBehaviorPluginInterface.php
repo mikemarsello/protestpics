@@ -40,8 +40,14 @@ interface RabbitHoleBehaviorPluginInterface extends PluginInspectionInterface {
    *   The behavior settings for the bundle of the entity (or the entity itself,
    *   if it is a bundle).
    */
-  public function settingsForm(&$form, &$form_state, $form_id, Entity $entity = NULL,
-    $entity_is_bundle = FALSE, ImmutableConfig $bundle_settings = NULL);
+  public function settingsForm(
+    &$form,
+    &$form_state,
+    $form_id,
+    Entity $entity = NULL,
+    $entity_is_bundle = FALSE,
+    ImmutableConfig $bundle_settings = NULL
+  );
 
   /**
    * Handle submission of the settings form for this plugin.

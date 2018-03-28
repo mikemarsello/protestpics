@@ -21,8 +21,14 @@ abstract class RabbitHoleBehaviorPluginBase extends PluginBase implements Rabbit
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(&$form, &$form_state, $form_id, Entity $entity = NULL,
-    $entity_is_bundle = FALSE, ImmutableConfig $bundle_settings = NULL) {
+  public function settingsForm(
+    &$form,
+    &$form_state,
+    $form_id,
+    Entity $entity = NULL,
+    $entity_is_bundle = FALSE,
+    ImmutableConfig $bundle_settings = NULL
+  ) {
     // Present no settings form.
   }
 

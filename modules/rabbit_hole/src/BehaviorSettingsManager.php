@@ -34,7 +34,7 @@ class BehaviorSettingsManager implements BehaviorSettingsManagerInterface {
 
     $entity = BehaviorSettings::load($id);
     if ($entity === NULL) {
-      $entity_array = array('id' => $id);
+      $entity_array = ['id' => $id];
       $entity_array += $settings;
       $entity = BehaviorSettings::create($entity_array);
     }
@@ -67,8 +67,7 @@ class BehaviorSettingsManager implements BehaviorSettingsManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function loadBehaviorSettingsAsEditableConfig($entity_type_id,
-    $entity_id, $is_bundle = FALSE) {
+  public function loadBehaviorSettingsAsEditableConfig($entity_type_id, $entity_id, $is_bundle = FALSE) {
 
     $actual = $this->configFactory->getEditable(
       'rabbit_hole.behavior_settings.'

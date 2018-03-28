@@ -32,7 +32,7 @@ class RabbitHoleSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   static public function getSubscribedEvents() {
-    $events['kernel.request'] = ['onRequest'];
+    $events['kernel.request'] = ['onRequest', 28];
     $events['kernel.response'] = ['onResponse'];
     return $events;
   }
@@ -77,25 +77,26 @@ class RabbitHoleSubscriber implements EventSubscriberInterface {
       return;
     }
 
-    // We won't go ahead if we have an entity form (i.e. we're adding/editing
-    // an entity).
-    if ($event->getRequest()->get('_entity_form') == NULL) {
-      // We check for all of our known entity keys that work with rabbit hole
-      // and invoke rabbit hole behavior on the first one we find (which
-      // should also be the only one).
-      $entity_keys = $this->rabbitHoleBehaviorInvoker->getPossibleEntityTypeKeys();
-      foreach ($entity_keys as $ekey) {
-        $entity = $event->getRequest()->get($ekey);
-        if (isset($entity) && $entity instanceof ContentEntityInterface) {
-          $new_response = $this->rabbitHoleBehaviorInvoker
-            ->processEntity($entity, $event->getResponse());
-          if (isset($new_response)) {
-            $event->setResponse($new_response);
+    // Get the route from the request.
+    if ($route = $event->getRequest()->get('_route')) {
+      // Only continue if the request route is the an entity canonical.
+      if (preg_match('/^entity\.(.+)\.canonical$/', $route)) {
+        // We check for all of our known entity keys that work with rabbit hole
+        // and invoke rabbit hole behavior on the first one we find (which
+        // should also be the only one).
+        $entity_keys = $this->rabbitHoleBehaviorInvoker->getPossibleEntityTypeKeys();
+        foreach ($entity_keys as $ekey) {
+          $entity = $event->getRequest()->get($ekey);
+          if (isset($entity) && $entity instanceof ContentEntityInterface) {
+            $new_response = $this->rabbitHoleBehaviorInvoker
+              ->processEntity($entity, $event->getResponse());
+            if (isset($new_response)) {
+              $event->setResponse($new_response);
+            }
+            break;
           }
-          break;
         }
       }
     }
   }
-
 }

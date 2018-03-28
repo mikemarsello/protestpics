@@ -2,6 +2,7 @@
 
 namespace Drupal\rabbit_hole\Plugin\RabbitHoleBehaviorPlugin;
 
+use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Url;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Link;
@@ -20,8 +21,6 @@ use Drupal\rabbit_hole\BehaviorSettingsManagerInterface;
 use Drupal\rabbit_hole\Plugin\RabbitHoleEntityPluginManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
-
 
 /**
  * Redirects to another page.
@@ -124,16 +123,16 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
    * {@inheritdoc}
    */
   public function performAction(Entity $entity, Response $current_response = NULL) {
-    // Return new RedirectResponse($this->path, $this->code);.
     $target = $entity->get('rh_redirect')->value;
     $response_code = NULL;
 
     $bundle_entity_type = $entity->getEntityType()->getBundleEntityType();
     $bundle_settings = $this->rhBehaviorSettingsManager
-      ->loadBehaviorSettingsAsConfig($bundle_entity_type,
-          $entity->bundle());
+      ->loadBehaviorSettingsAsConfig(
+        $bundle_entity_type ?: $entity->getEntityType()->id(),
+        $bundle_entity_type ? $entity->bundle() : NULL);
 
-    if (!isset($target)) {
+    if (empty($target)) {
       $target = $bundle_settings->get('redirect');
       $response_code = $bundle_settings->get('redirect_code');
     }
@@ -150,13 +149,13 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
 
     if ($this->moduleHandler->moduleExists('token')) {
       $target = $this->token->replace($target,
-        array(
+        [
           $entity->getEntityTypeId() => $entity,
-        ),
-        array(
+        ],
+        [
           'clear' => TRUE,
           'langcode' => $langcode,
-        ), new BubbleableMetadata()
+        ], new BubbleableMetadata()
       );
     }
 
@@ -166,6 +165,12 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
     elseif ($target === '<front>' || $target === '/<front>') {
       // Special case for redirecting to the front page.
       $target = \Drupal::service('url_generator')->generateFromRoute('<front>', [], []);
+    }
+
+    // If non-absolute URI, pass URL through Drupal's URL generator to
+    // handle languages etc.
+    if (!UrlHelper::isExternal($target)) {
+      $target = Url::fromUserInput($target)->toString();
     }
 
     switch ($response_code) {
@@ -213,8 +218,14 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(&$form, &$form_state, $form_id, Entity $entity = NULL,
-    $entity_is_bundle = FALSE, ImmutableConfig $bundle_settings = NULL) {
+  public function settingsForm(
+    &$form,
+    &$form_state,
+    $form_id,
+    Entity $entity = NULL,
+    $entity_is_bundle = FALSE,
+    ImmutableConfig $bundle_settings = NULL
+  ) {
 
     $redirect = NULL;
     $redirect_code = NULL;
@@ -236,37 +247,37 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
       $redirect_code = NULL;
     }
 
-    $form['rabbit_hole']['redirect'] = array(
+    $form['rabbit_hole']['redirect'] = [
       '#type' => 'fieldset',
       '#title' => t('Redirect settings'),
-      '#attributes' => array('class' => array('rabbit-hole-redirect-options')),
-      '#states' => array(
-        'visible' => array(
-          ':input[name="rh_action"]' => array('value' => $this->getPluginId()),
-        ),
-      ),
-    );
+      '#attributes' => ['class' => ['rabbit-hole-redirect-options']],
+      '#states' => [
+        'visible' => [
+          ':input[name="rh_action"]' => ['value' => $this->getPluginId()],
+        ],
+      ],
+    ];
 
     // Get the default value for the redirect path.
     // Build the descriptive text. Add some help text for PHP, if the user has
     // the permission to use PHP for evaluation.
-    $description = array();
-    $description[] = t('Enter the relative path or the full URL that the user should get redirected to. Query strings and fragments are supported, such as %example.', array('%example' => 'http://www.example.com/?query=value#fragment'));
+    $description = [];
+    $description[] = t('Enter the relative path or the full URL that the user should get redirected to. Query strings and fragments are supported, such as %example.', ['%example' => 'http://www.example.com/?query=value#fragment']);
 
     if ($this->moduleHandler->moduleExists('token')) {
       $description[] = t('You may enter tokens in this field.');
     }
 
-    $form['rabbit_hole']['redirect']['rh_redirect'] = array(
+    $form['rabbit_hole']['redirect']['rh_redirect'] = [
       '#type' => /*rabbit_hole_access_php($module) ? 'textarea' :*/ 'textfield',
       '#title' => t('Redirect path'),
       '#default_value' => $redirect,
       '#description' => '<p>' . implode('</p><p>', $description) . '</p>',
-      '#attributes' => array('class' => array('rabbit-hole-redirect-setting')),
+      '#attributes' => ['class' => ['rabbit-hole-redirect-setting']],
       '#rows' => substr_count($redirect, "\r\n") + 2,
-      '#element_validate' => array(),
-      '#after_build' => array(),
-    );
+      '#element_validate' => [],
+      '#after_build' => [],
+    ];
 
     $entity_type_id = NULL;
     if (isset($entity)) {
@@ -289,33 +300,33 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
       $form['rabbit_hole']['redirect']['rh_redirect']['#after_build'][]
         = 'token_element_validate';
       $form['rabbit_hole']['redirect']['rh_redirect']['#token_types']
-        = array($entity_type_for_tokens);
+        = [$entity_type_for_tokens];
     }
 
     // Add the redirect response setting.
-    $form['rabbit_hole']['redirect']['rh_redirect_response'] = array(
+    $form['rabbit_hole']['redirect']['rh_redirect_response'] = [
       '#type' => 'select',
       '#title' => $this->t('Response code'),
-      '#options' => array(
+      '#options' => [
         301 => $this->t('301 (Moved Permanently)'),
         302 => $this->t('302 (Found)'),
         303 => $this->t('303 (See other)'),
         304 => $this->t('304 (Not modified)'),
         305 => $this->t('305 (Use proxy)'),
         307 => $this->t('307 (Temporary redirect)'),
-      ),
+      ],
       '#default_value' => $redirect_code,
       '#description' => $this->t('The response code that should be sent to the users browser. Follow @link for more information on response codes.',
-        array('@link' => Link::fromTextAndUrl(t('this link'), Url::fromUri('http://api.drupal.org/api/drupal/includes--common.inc/function/drupal_goto/7'))->toString())),
-      '#attributes' => array('class' => array('rabbit-hole-redirect-response-setting')),
-    );
+        ['@link' => Link::fromTextAndUrl(t('this link'), Url::fromUri('http://api.drupal.org/api/drupal/includes--common.inc/function/drupal_goto/7'))->toString()]),
+      '#attributes' => ['class' => ['rabbit-hole-redirect-response-setting']],
+    ];
 
     // Display a list of tokens if the Token module is enabled.
     if ($this->moduleHandler->moduleExists('token')) {
-      $form['rabbit_hole']['redirect']['token_help'] = array(
+      $form['rabbit_hole']['redirect']['token_help'] = [
         '#theme' => 'token_tree_link',
-        '#token_types' => array($entity_type_for_tokens),
-      );
+        '#token_types' => [$entity_type_for_tokens],
+      ];
     }
 
     // If the redirect path contains PHP, and the user doesn't have permission

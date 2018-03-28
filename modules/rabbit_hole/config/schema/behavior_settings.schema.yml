@@ -1,6 +1,6 @@
 rabbit_hole.behavior_settings.*:
   type: config_entity
-  label: 'Behavior settings config'
+  label: 'Rabbit hole settings'
   mapping:
     id:
       type: string

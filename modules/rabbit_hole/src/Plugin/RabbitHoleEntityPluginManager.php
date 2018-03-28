@@ -28,8 +28,12 @@ class RabbitHoleEntityPluginManager extends DefaultPluginManager {
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler to invoke the alter hook with.
    */
-  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler,
-    EntityTypeManagerInterface $etm) {
+  public function __construct(
+    \Traversable $namespaces,
+    CacheBackendInterface $cache_backend,
+    ModuleHandlerInterface $module_handler,
+    EntityTypeManagerInterface $etm
+  ) {
     parent::__construct('Plugin/RabbitHoleEntityPlugin', $namespaces, $module_handler, 'Drupal\rabbit_hole\Plugin\RabbitHoleEntityPluginInterface', 'Drupal\rabbit_hole\Annotation\RabbitHoleEntityPlugin');
 
     $this->alterInfo('rabbit_hole_rabbit_hole_entity_plugin_info');
@@ -65,7 +69,7 @@ class RabbitHoleEntityPluginManager extends DefaultPluginManager {
    *   An array of plugin definitions for the entity type with ID $entity_type.
    */
   public function loadDefinitionsByEntityType($entity_type) {
-    return array_filter($this->getDefinitions(), function($var) use ($entity_type) {
+    return array_filter($this->getDefinitions(), function ($var) use ($entity_type) {
       return $var['entityType'] == $entity_type;
     });
   }
@@ -77,7 +81,7 @@ class RabbitHoleEntityPluginManager extends DefaultPluginManager {
    *   An array of entity type ID strings.
    */
   public function loadSupportedEntityTypes() {
-    return array_values(array_map(function($var) {
+    return array_values(array_map(function ($var) {
       return $var['entityType'];
     }, $this->getDefinitions()));
   }
@@ -89,7 +93,7 @@ class RabbitHoleEntityPluginManager extends DefaultPluginManager {
    *   An array of entity type ID strings.
    */
   public function loadSupportedBundleEntityTypes() {
-    return array_values(array_map(function($var) {
+    return array_values(array_map(function ($var) {
       return $this->etm->getStorage($var['entityType'])
         ->getEntityType()->getBundleEntityType();
     }, $this->getDefinitions()));
@@ -103,7 +107,7 @@ class RabbitHoleEntityPluginManager extends DefaultPluginManager {
    *   form_id => entity_type.
    */
   public function loadSupportedGlobalForms() {
-    $result = array();
+    $result = [];
     foreach ($this->getDefinitions() as $key => $def) {
       $form_id = $this->createInstance($key)->getGlobalConfigFormId();
       if (isset($form_id)) {
@@ -117,11 +121,12 @@ class RabbitHoleEntityPluginManager extends DefaultPluginManager {
    * Load a map of tokens per entity type.
    *
    * Used for behavior plugins that use tokens like PageRedirect.
+   *
    * @return array
-   *  An array of token IDs keyed by entity ID
+   *   An array of token IDs keyed by entity ID
    */
   public function loadEntityTokenMap() {
-    $map = array();
+    $map = [];
     foreach ($this->getDefinitions() as $key => $def) {
       $map += $this->createInstance($key)->getEntityTokenMap();
     }
